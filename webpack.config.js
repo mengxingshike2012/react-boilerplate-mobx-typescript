@@ -53,15 +53,13 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      // minChunks: function (module) {
-      //   console.log(module.context)
-      //   return module.context && module.context.indexOf('node_moudles') !== -1
-      // }
-      minChunks: Infinity,
+      minChunks: function (module) {
+        return module.context && module.context.indexOf('node_moudles') !== -1
+      }
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'mainfest'
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'mainfest'
+    }),
     new HtmlWebPackPlugin({
       template: 'src/index.html',
       cache: false,

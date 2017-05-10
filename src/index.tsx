@@ -1,13 +1,23 @@
-// import * as React from 'react'
-// import * as ReactDOM from 'react-dom'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 
-// import {Hello} from './components/Hello'
+import {AppContainer} from 'react-hot-loader'
+import App from './app'
+import {Hello} from './components/Hello'
 
-// ReactDOM.render(
-//   <Hello compiler='typescript' framework='react' />,
-//   document.getElementById('root')
-// )
+const render = () => {
+	ReactDOM.render(
+  		// <Hello compiler='typescript' framework='react' />,
+  		<App />,
+  		document.getElementById('root')
+  		)
+}
 
-var moment = require('moment')
+render()
 
-console.log(moment())
+if (module.hot) {
+	module.hot.accept('./app', () => {
+		render()
+	})
+}
+
