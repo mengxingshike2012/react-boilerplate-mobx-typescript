@@ -1,6 +1,11 @@
 import { observable, action, runInAction } from 'mobx'
 
-export class CounterStore {
+
+export interface {
+
+}
+
+export default class CounterStore {
 
 	@observable count: number = 5;
 
@@ -27,4 +32,4 @@ export class CounterStore {
 
 }
 
-export default new CounterStore
+

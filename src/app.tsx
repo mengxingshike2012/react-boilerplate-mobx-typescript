@@ -12,8 +12,8 @@ import Home from './pages/home'
 
 useStrict(true)
 
-export default () => <Provider counterStore={CounterStore}>
+export default () => <Provider counterStore={new CounterStore()}>
 	<Router>
-		<Route path="/" component={Home} />
+		 <Route path="/" component={Home} />
 	</Router>
 </Provider>

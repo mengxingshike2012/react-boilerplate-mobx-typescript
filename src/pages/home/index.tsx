@@ -4,6 +4,7 @@ import {RouteComponentProps} from 'react-router'
 
 import CounterStore from '../../stores/Counter'
 
+
 export interface HomeProps extends RouteComponentProps<any> {
 	counterStore: CounterStore;
 }
