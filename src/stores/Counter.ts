@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, runInAction } from 'mobx'
 
 export class CounterStore {
 
@@ -10,12 +10,18 @@ export class CounterStore {
 
 	@action async asyncIncrement() {
 		const by = await Promise.resolve(3);
-		this.count += by;
+		runInAction('async', () => {
+			this.count += by;
+		})
+		
+		
 	}
 
 	@action asyncIncrement2() {
 		setTimeout(() => {
-			this.count+= 100
+			runInAction('async2', () => {
+				this.count+= 100
+			})
 		}, 1000)
 	}
 
